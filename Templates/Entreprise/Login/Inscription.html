@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SalariApp-Inscription</title>
+
+    <!-- Custom fonts for this template-->
+    <link href= "{% static 'css/all.min.css' %}" rel="stylesheet"  type="text/css">
+<!--   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href= "{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet"  type="text/css">
+
+
+     <style>
+      body {
+          background: url("{% static 'img/login.jpg' %}")  center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          background-size: cover;
+          background
+          }
+      .container{
+            background-color:rgba(0,0,0,0.3);
+      }
+    </style>
+
+
+</head>
+
+<body class="">
+
+    <div class="container">
+
+        <div class=" o-hidden border-0  my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                        <div class="p-3">
+                            <div class="text-center" style="text:100px">
+                                <h1 class="h1 text-gray-900 mb-4">Création de compte</h1>
+                            </div>
+                            <form class="user"  style="color:#111">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0" style="text-align:center" >Nom de l'utilisateur
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Nom de l'utilisateur">
+                                    </div>
+                                    <div class="col-sm-6" style="text-align:center">Nom de l'entrprise
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Nom de l'entrprise">
+                                    </div>
+                                </div>
+                                <div class="form-group" style="text-align:center">Adresse email
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Addresse email">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0" style="text-align:center">Mot de passe
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder=" Mot de passe">
+                                    </div>
+                                    <div class="col-sm-6" style="text-align:center">Confirme mot de passe
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Confirme mot de passe">
+                                    </div>
+                                </div>
+                                <a href="{% url 'Dash'  %}" class="btn btn-primary btn-user btn-block">
+                                    S'inscrire
+                                </a>
+                                <hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab  fa-fw"></i> Continuer avec Google
+                                </a>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html"  style="color:#111" ><b>Mot de pass oublié?</b></a>
+                            </div>
+                            <div class="text-center" >
+                                <a class="small" href="login.html"  style="color:#111"><b> Vous avez déjà un compte? Connexion!</b></a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap core JavaScript-->
+
+    <script src= "{% static 'js/jquery.min.js' %}" type="text/javascript" ></script>
+    <script src= "{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript" ></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src= "{% static 'js/jquery.easing.min.js' %}" type="text/javascript" ></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src= "{% static 'js/sb-admin-2.min.js' %}" type="text/javascript" ></script>
+
+</body>
+
+</html>

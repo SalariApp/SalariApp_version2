@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiche signaletique entreprise</title>
+
+
+
+<style>
+table
+{
+    border-collapse: collapse;
+}
+td, th
+{
+    border: 2px solid black;
+}
+</style>
+
+
+</head>
+<body>
+
+
+<script>
+
+</script>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card card-body" id="sectionAimprimer">
+                <h2 class="btn ">Informations sur l'entreprise</h2>
+
+                <table class="table table_sm">
+<hr> <br>
+                    <tr>
+                        <th> Nom</th> <th>  {{entreprises.nomEntreprise}} </th>
+                    </tr>
+                    <tr>
+                        <th>Activité</th> <th> {{entreprises.activite}}</th>
+                    </tr>
+                    <tr>
+                        <th>Année de creation</th> <th>{{entreprises.anneeCreation}}</th>
+                    </tr>
+                    <tr>
+                        <th>Effectif</th> <th> {{entreprises.effectif}}</th>
+                    </tr>
+                    <tr>
+                        <th>Capital</th> <th> {{entreprises.capital}}</th>
+                    </tr>
+                    <tr>
+                        <th>Chiffre d'affaire </th> <th>   {{entreprises.chiffreAffaire}}</th>
+                    </tr>
+                     <tr>
+                        <th>Nom Directeur</th> <th>  {{entreprises.nomDirecteur}}</th>
+                    </tr>
+                    <tr>
+                        <th>Numéro contribuable</th> <th> {{entreprises.numeroContribuable}}</th>
+                    </tr>
+                    <tr>
+                        <th>Forme juridique</th> <th>  {{entreprises.formeJuridique}}</th>
+                    </tr>
+
+
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+<button onClick="imprimer('sectionAimprimer')" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 retour"><font color="white">Imprimer</font></button>
+
+
+
+</body>
+</html>

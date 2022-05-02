@@ -14,6 +14,7 @@ EMAIL_HOST = EMAIL_HOST
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT = EMAIL_PORT
+EMAIL_HOST_AUTHENTICATION = EMAIL_HOST_AUTHENTICATION
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-v(qx)-*tb_#rxkui&9-fv*v@!@)8nu+^5gunta&+)^yrrp2590'
@@ -33,8 +34,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Entreprise',
-    'Employé',
-    'Salaire'
+    'Employe',
+    'Salaire',
+    'Adresse',
+    'BulletinPaie',
+    'EmployePrime',
+    'Indemnites',
+    'Prime',
+    'Retenues'
+
 ]
 
 MIDDLEWARE = [

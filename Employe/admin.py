@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from Salaire.models import Salaire
+from Employe.models import Employe
 
-admin.site.register(Salaire)
+admin.site.register(Employe)

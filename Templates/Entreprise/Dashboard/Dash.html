@@ -30,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'Dash' %}">
                 <div class="sidebar-brand-icon ">
                     <i class="fas "> <img src=" {% static 'img/Original-Copie.png' %}" alt="" height="70px" ></i>
                 </div>
@@ -62,13 +62,15 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Entreprise</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <h6 class="collapse-header">Gérer entreprise:</h6>
+                        <a class="collapse-item" href="{% url 'creerEntre' %}">Renseigner votre entreprise</a>
+                        <a class="collapse-item" href="{% url 'infoEntre' %}">Fiche signaletique</a>
+                        <a class="collapse-item" href="cards.html">Modifier FSE</a>
+                        <a class="collapse-item" href="cards.html">Déconnexion</a>
                     </div>
                 </div>
             </li>
@@ -78,16 +80,16 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Employé</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Gérer les employés:</h6>
+                        <a class="collapse-item" href="{% url 'CreerEmploye' %}">Ajouter</a>
+                        <a class="collapse-item" href="{% url 'Modifier' %}">Modifier</a>
+                        <a class="collapse-item" href="{% url 'Supprimer' %}">Supprimer</a>
+                        <a class="collapse-item" href="{% url 'InfoE' %}">Liste des employés</a>
                     </div>
                 </div>
             </li>
@@ -325,8 +327,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="{% static 'img/undraw_profile.svg' %}">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{request.user}}</span>
+                                <img class="img-profile rounded-circle" src="{% static 'img/Veste_Profil.jpg' %}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

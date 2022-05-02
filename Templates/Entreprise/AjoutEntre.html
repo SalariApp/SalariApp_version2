@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une entreprise</title>
+</head>
+<body>
+
+
+
+
+
+ <form action="" method="post" class="u-clearfix u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form-1" style="padding: 6px;">
+                {% csrf_token %}
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Nom de l'entreprise</label>
+                   <!-- <input type="text" placeholder="{{user.first_name}}" id="nomEntreprise" name="nomEntreprise" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""> -->
+                    {{monformEntreprise.nomEntreprise}}
+                  </div>
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Activité </label>
+                    <!--<input type="text" placeholder="Entrer l'activité" id="activite" name="activite" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+                    {{monformEntreprise.activite}}
+                  </div>
+
+                <!--  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Adresse</label>
+                    <input type="email" placeholder="Entrer l'adresse" id="adresse" name="adresse" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                    {{monformEntreprise.adresse}}
+                  </div>
+                -->
+                    <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Année création </label>
+                    <!--<input type="text" placeholder="Entrer la date de céation" id="anneeCreation" name="anneeCreation" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+                      {{monformEntreprise.anneeCreation}}
+                  </div>
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Effectif</label>
+                    <!--<input type="number" placeholder="Entrer l'effectif" id="effectif" name="effectif" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+                    {{monformEntreprise.effectif}}
+                  </div>
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Capital </label>
+                    <!--<input type="number" placeholder="Entrer le capital" id="capital" name="capital" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+                    {{monformEntreprise.capital}}
+                  </div>
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Chiffre d'affaire </label>
+                   <!-- <input type="number" placeholder="Entrer le chiffre d'affaire" id="chiffreAffaire" name="chiffreAffaire" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+                    {{monformEntreprise.chiffreAffaire}}
+                  </div>
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Nom du directeur</label>
+                   <!-- <input type="text" placeholder="Entrer le nom du directeur" id="nomDirecteur" name="nomDirecteur" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+                    {{monformEntreprise.nomDirecteur}}
+                  </div>
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Numéro contribuable </label>
+                    <!--<input type="number" placeholder="Entrer le numéro contribuable" id="numeroContribuable" name="numeroContribuable" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+                    {{monformEntreprise.numeroContribuable}}
+                  </div>
+
+                  <div class="u-form-group u-form-name " style="color : black">
+                    <label for="" class="" >Forme juridique </label>
+
+                    {{monformEntreprise.formeJuridique}}
+                  </div>
+
+                <span class="u-align-center u-form-group u-form-submit u-form-group-3">
+                  <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 inscrire">Annuler</a>
+                  <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 retour" style="color:white"><font color="white">Ajouter</font></button>
+                </span>
+             </form>
+
+
+
+
+
+</body>
+</html>

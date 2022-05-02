@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SalariApp-Inscription</title>
+    <title>Inscription</title>
 
     <!-- Custom fonts for this template-->
     <link href= "{% static 'css/all.min.css' %}" rel="stylesheet"  type="text/css">
@@ -34,6 +34,20 @@
       .container{
             background-color:rgba(0,0,0,0.3);
       }
+
+      footer{
+            display:block;
+            position: absolute;
+            left: 0px;
+            right:0px;
+            bottom: 0px;
+            color:#fff ;
+            background:#115;
+        }
+      .sms{
+            background-color:rgba(0,0,0,0.8);
+      }
+
     </style>
 
 
@@ -41,62 +55,62 @@
 
 <body class="">
 
+<div class="sms">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show " role="alert" style="color:red "  >
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+</div>
+
+
     <div class="container">
 
         <div class=" o-hidden border-0  my-5">
-            <div class="card-body p-0">
+            <div class="card-body p-2">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                        <div class="p-3">
+                    <div class="col-lg-5 d-none d-lg-block"></div>
+                        <div class="p-10">
                             <div class="text-center" style="text:100px">
                                 <h1 class="h1 text-gray-900 mb-4">Création de compte</h1>
                             </div>
-                            <form class="user"  style="color:#111">
+                            <form class="user" method="post" action="{% url 'inscrit' %}" style="color:#111">
+                                {% csrf_token %}
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0" style="text-align:center" >Nom de l'utilisateur
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Nom de l'utilisateur">
-                                    </div>
-                                    <div class="col-sm-6" style="text-align:center">Nom de l'entrprise
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Nom de l'entrprise">
+                                    <div class="col-sm-12 mb-5 mb-sm-0" style="text-align:center" >Nom de l'utilisateur
+                                        <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Nom de l'utilisateur">
                                     </div>
                                 </div>
                                 <div class="form-group" style="text-align:center">Adresse email
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Addresse email">
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Adresse email">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0" style="text-align:center">Mot de passe
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder=" Mot de passe">
+                                        <input type="password" class="form-control form-control-user" id="pass1" name="pass1" placeholder=" Mot de passe">
                                     </div>
                                     <div class="col-sm-6" style="text-align:center">Confirme mot de passe
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Confirme mot de passe">
+                                        <input type="password" class="form-control form-control-user" id="pass2" name="pass2" placeholder="Confirme mot de passe">
                                     </div>
                                 </div>
-                                <a href="{% url 'Dash'  %}" class="btn btn-primary btn-user btn-block">
-                                    S'inscrire
-                                </a>
+                                <button  type="submit" class="btn btn-primary btn-user btn-block"> S'inscrire </button>
                                 <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <a href="{% url 'Erreur' %}" class="btn btn-google btn-user btn-block">
                                     <i class="fab  fa-fw"></i> Continuer avec Google
                                 </a>
                             </form>
                             <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.html"  style="color:#111" ><b>Mot de pass oublié?</b></a>
-                            </div>
-                            <div class="text-center" >
-                                <a class="small" href="login.html"  style="color:#111"><b> Vous avez déjà un compte? Connexion!</b></a>
+                            <div class="text-center" style="color:#111" >
+                                <a class="small" href="{% url 'Login' %}"  style="color:#fff; font-size:15px "><b> Vous avez déjà un compte? Connexion!</b></a>
                             </div>
                         </div>
                 </div>
             </div>
-        </div>
 
+         </div>
     </div>
     <!-- Bootstrap core JavaScript-->
 
@@ -111,4 +125,14 @@
 
 </body>
 
+
+<footer>
+<center >
+             <p> En continuant vous acceptez<br>les <a href="{% url 'Erreur' %}" class="">conditions d'utilisation</a> de SalariApp et reconnaissez avoir lu notre&nbsp;<br>
+          <a href="{% url 'Erreur' %}" class="" >Politique de confidentialité</a>
+        </p>
+        <p class="u-text u-text-white u-text-7"> (c)2021 SalariApp, tous droits réservés</p>
+
+</center>
+</footer>
 </html>

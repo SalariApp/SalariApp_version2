@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+
+           <div class="insi" style="text-align:center">
+
+               <div class="MEA" style="height:600px; width:205px;">
+                   <a href="{% url 'CreerEmploye'  %} " >
+                       <div style="height:600px; width:205px;">
+                           <h2 style="position:relative; left:-30px; top:220px;"> Ajouter un <br>employé</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEL" style="height:600px; width:205px; position:absolute; left:230px;">
+                   <a href="{% url 'InfoE'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Lister les <br>employés</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEM" style="height:600px; width:205px; position:absolute; right:230px;">
+                   <a href="{% url 'InfoE'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Mettre à jour les informations<br>d'un employé</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEE" style="height:600px; width:205px; position:absolute; right:10px; ">
+                   <a href="{% url 'InfoE'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Télécharger la liste <br>des employés</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+           </div>
+
+
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+ {% endblock %}
+

@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+
+	<div class="recent-oders">
+        <div class="container-form">
+
+                    <form method="POST" action="{% url 'AjoutA' %}" class="sign-in-form">
+                           <h2 class="title" style="text-align:center;"><b>Renseigner les adresses de votre entreprise</b></h2>
+                      {% csrf_token %}
+                        <div class="form-group">
+                            <label>Type de l'adresse</label>
+                            <select class="input-field" id="typeAdresse" name="typeAdresse" >
+                                <option value="{{monformAdresse.typeAdresse}}  </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label">Valeur de l'adresse</label>
+                            <input type="text" class="input-field" id="valeur" name="valeur" placeholder="Valeur ">
+                        </div>
+                         {% for message in messages %}
+							<p>{{message}}</p>
+						{% endfor %}
+
+                        <input type="submit" class="btn center" value="Ajouter" />
+
+
+
+                       <a href="{% url 'EntrepriseMenu' %}">
+                            <div class="btn retour">Retour</div>
+                        </a>
+                    </form>
+
+     </div>
+
+
+
+
+	</div>
+
+
+
+
+
+ {% endblock %}

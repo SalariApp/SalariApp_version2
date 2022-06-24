@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalariApp</title>
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <!-- STYLE -->
+    <link href= "{% static 'css/styleDash.css' %}" rel="stylesheet"  type="text/css">
+    <link href= "{% static 'css/form.css' %}" rel="stylesheet"  type="text/css">
+
+</head>
+<body>
+        <nav>
+           <div  class="nava">
+             <div class="fala">
+                  <!-- Topbar Search -->
+
+                <input type="text" class="input-field-search" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <button class="btn-search" type="button">
+                        <i class="material-icons-sharp">search</i>
+                    </button>
+             </div>
+          </div>
+
+        </nav>
+    <div class="container">
+        <!-- ================================== DEBUT DU ASIDE ========================================  -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="title">
+                    <h2 class="text-muted">SALARI<span class="danger">APP</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="{% url 'Dash' %}">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="{% url 'Dash' %}" class="active">
+                    <span class="material-icons-sharp">roofing</span>
+                    <h3>Accueil</h3>
+                </a>
+                <a href="{% url 'EntrepriseMenu' %}"  class="active" >
+                    <span class="material-icons-sharp">apartment</span>
+                    <h3>Entreprise</h3>
+                </a>
+                <a href="{% url 'EmployeMenu' %}" class="active" >
+                    <span class="material-icons-sharp">person</span>
+                    <h3>Employés</h3>
+                </a>
+                <a href="{% url 'salaire' %}" class="active" >
+                    <span class="material-icons-sharp">currency_franc</span>
+                    <h3>Salaire </h3>
+                </a>
+                <a href="#" class="active" >
+                    <span class="material-icons-sharp">text_snippet</span>
+                    <h3>Rapports</h3>
+                </a>
+                <a href="#" class="active" >
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Paramètre <span class="message-count">2</span></h3>
+                </a>
+                <a href="#" class="active" >
+                    <span class="material-icons-sharp">help</span>
+                    <h3>Aide</h3>
+                </a>
+
+                <a href="{% url 'deco' %}" class="active" >
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Déconnexion</h3>
+                </a>
+            </div>
+
+        </aside>
+        <!-- ================================== FIN DU ASIDE ========================================  -->
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+        <main>
+
+            <div class="date">
+                <input type="date">
+            </div>
+            {% block contenu %}
+
+            {% endblock %}
+
+        </main>
+
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+            <!-- ======================================= DEBUT TOP ======================================== -->
+
+        <div class="gauche">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p><b>{{request.user.username}}</b></p>
+                        <small class="danger">Administrateur</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{% static 'img/tof.jpg' %}" alt="" >
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================================= FIN TOP ======================================== -->
+
+            <div class="MAJ-recent">
+                <h2>Mise à jour récent</h2>
+                <div class="updates">
+                    <div class="updates">
+                        <div class="profile-photo">
+                            <img src="{% static 'img/tof2.jpg' %}" alt="" >
+                        </div>
+                        <div class="message">
+                            <p><b>Kana Darel</b> Bonjour nous avons reçu nos salaire normalement, on vous remerci </p>
+                            <small class="text-muted">Il y'a 5 minutes</small>
+                        </div>
+                    </div>
+                    <div class="updates">
+                        <div class="profile-photo">
+                            <img src="{% static 'img/tof1.jpg' %}" alt="" >
+                        </div>
+                        <div class="message">
+                            <p><b>Wanga Morelle</b> Bonjour nous avons reçu nos salaire normalement, on vous remerci </p>
+                            <small class="text-muted">Il y'a 5 minutes</small>
+                        </div>
+                    </div>
+                    <div class="updates">
+                        <div class="profile-photo">
+                            <img src="{% static 'img/tof3.jpg' %}" alt="" >
+                        </div>
+                        <div class="message">
+                            <p><b>Kani Igor</b> Bonjour nous avons reçu nos salaire normalement, on vous remerci </p>
+                            <small class="text-muted">Il y'a 5 minutes</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src= "{% static 'js/indexDash.js' %}" type="text/javascript" ></script>
+	<script src= "{% static 'js/my-login.js' %}" type="text/javascript" ></script>
+	<script src= "{% static 'js/bootstrap.min.js' %}" type="text/javascript" ></script>
+</body>
+</html>
+
+

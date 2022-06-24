@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+
+             <div class="table-employe">
+
+                <h2>Tableau des employés</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="">Numéro</th>
+                            <th class="">Nom</th>
+                            <th>Prenom</th>
+                            <th>Date de naissance</th>
+                            <th>Lieu de naissance</th>
+                            <th>Sexe</th>
+                            <th>Nationalité</th>
+                            <th>Fonction</th>
+                            <th>Type du contrat</th>
+                            <th>Date recrutement</th>
+                            <th>Date de fin d'emploi</th>
+                            <th>Salaire base</th>
+                            <th colspan="3">Options</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                     {% for Employes in Employes %}
+                        <tr>
+                        <td>{{Employes.id}}</td>
+                        <td>{{Employes.nomEmploye}}</td>
+                        <td>{{Employes.prenomEmploye}}</td>
+                        <td>{{Employes.dateNaissance}}</td>
+                        <td>{{Employes.lieuNaissance}}</td>
+                        <td>{{Employes.sexe}}</td>
+                        <td>{{Employes.nationalite}}</td>
+                        <td>{{Employes.fonction}}</td>
+                        <td>{{Employes.typeContrat}}</td>
+                        <td>{{Employes.dateRecrutement}}</td>
+                        <td>{{Employes.dateFin}}</td>
+                        <td>{{Employes.salaireBase}}</td>
+                        <td class="sang"> <a href=" {% url 'supp' employe_id=Employes.id %} "> Supprimer </a></td>
+                        <td class="warning"> <a href="{% url 'ModifierEmploye' Employes.pk %}">Modifier</a></td>
+
+                        </tr>
+                     {%endfor%}
+                    </tbody>
+                </table>
+                <a href="{% url 'pdf' %}">Télécharger </a>
+            </div>
+
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+ {% endblock %}
+

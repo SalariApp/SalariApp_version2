@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+      body {
+          background: url("{% static 'Login/TofLogin2.jpg' %}")  center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          background-size: cover;
+          }
+      .valid{
+         width:1300px;
+         height: 200px ;
+         display: inline-block;
+         border: 5px solid #55e866;
+         box-sizing:border-box;
+         background-color: rgba(255, 255, 255, 0.963);
+         padding-left:15px;
+         position: absolute;
+         top: 50px;
+         left:10%;
+
+}
+  </style>
+
+</head>
+<body>
+<div class="valid">
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"> &times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+
+
+
+    {% if user.is_authenticated %}
+    <h3> Hello  {{  fname}} </h3>
+    <h4> Vous vous êtes connectés(e) avec succès  </h4>
+    <button type="submit"><a href="Finish">Deconnexion </a></button>
+</div>
+</body>
+</html>

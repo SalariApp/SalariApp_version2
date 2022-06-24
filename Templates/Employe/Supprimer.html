@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function imprimer(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
+   document.body.innerHTML = printContents;
+   window.print();
+   document.body.innerHTML = originalContents;
+   }
+</script>
+
+<style>
+table
+{
+    border-collapse: collapse;
+}
+td, th
+{
+    border: 1px solid black;
+}
+</style>
+
+   <div class="card card-body" id="sectionAimprimer"><br>
+      <center> <font size="5pt" color="#478ac9"><b>Liste des employés</b></font></center>
+       <br>
+                <table>
+                    <tr>
+
+                        <th style="size=5">Nom</th>
+                        <th>Prenom</th>
+                        <th>Date de naissance</th>
+                        <th>Lieu de naissance</th>
+                        <th>Sexe</th>
+                        <th>Nationalité</th>
+                        <th>Fonction</th>
+                        <th>Type du contrat</th>
+                        <th>Date recrutement</th>
+                        <th>Date de fin d'emploi</th>
+                        <th>Salaire base</th>
+                        <th>Salaire net</th>
+                        <th colspan="3">Option</th>
+
+                    </tr>
+                    {% for Employes in Employes %}
+                    <tr>
+
+                        <td><a >{{Employes.nomEmploye}}</a></td>
+                        <td>{{Employes.prenomEmploye}}</td>
+                        <td>{{Employes.dateNaissance}}</td>
+                        <td>{{Employes.lieuNaissance}}</td>
+                        <td>{{Employes.sexe}}</td>
+                        <td>{{Employes.nationalite}}</td>
+                        <td>{{Employes.fonction}}</td>
+                        <td>{{Employes.typeContrat}}</td>
+                        <td>{{Employes.dateRecrutement}}</td>
+                        <td>{{Employes.dateFin}}</td>
+                        <td>{{Employes.salaireBase}}</td>
+                        <td>{{Employes.salaireNet}}</td>
+                        <td><a href=" {% url 'supp' employe_id=Employes.id %} "> Supprimer</a></td>
+
+                        {%endfor%}
+                    </tr>
+
+                </table>
+            </div>
+
+<button onClick="imprimer('sectionAimprimer')" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 retour"><font color="white">Imprimer</font></button>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+
+           <div class="insi" style="text-align:center">
+               {% if request.user.entreprise.image %}
+
+                    <div class="MEA" style="height:600px; width:205px;">
+                        <a href="{% url 'ModifierEmplo'  %} " >
+                             <div style="height:600px; width:205px;">
+                                 <h2 style="position:relative; left:-30px; top:220px;">Renseigner les informations<br>sur votre entreprise</br></h2>
+                             </div>
+                         </a>
+                    </div>
+               {% else %}
+                    <div class="MEA" style="height:600px; width:205px;">
+                        <a href="{% url 'creerEntre'  %} " >
+                             <div style="height:600px; width:205px;">
+                                 <h2 style="position:relative; left:-30px; top:220px;">Renseigner les informations<br>sur votre entreprise</br></h2>
+                             </div>
+                         </a>
+                    </div>
+               {% endif %}
+
+               <div class="MEL" style="height:600px; width:205px; position:absolute; left:230px;">
+                   <a href="{% url 'infoEntre'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Afficher les informations<br>sur votre entreprise</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEM" style="height:600px; width:205px; position:absolute; right:230px;">
+                   <a href="{% url 'InfoE'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Télécharger la fiche <br> signalétique de entreprise</br></br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEE" style="height:600px; width:205px; position:absolute; right:10px;">
+                   <a href="{% url 'AjoutA' %}">
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Renseigner l'adresse <br>de l'entreprise</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+           </div>
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+ {% endblock %}
+

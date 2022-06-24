@@ -1,0 +1,174 @@
+
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+
+     <div class="container-form">
+
+                    <form method="POST" action="{% url 'CreerEmploye' %}" class="sign-in-form">
+                           <h2 class="title" style="text-align:center;"><b>Ajout d'un employé</b></h2>
+                      {% csrf_token %}
+                        <div class="form-group">
+                            <label for="nomEmploye"> Nom de l'employé</label>
+                            <input type="text" class="  input-field" id="nomEmploye" name="nomEmploye" placeholder="Entrer son nom ">
+                        </div>
+                        <div class="form-group">
+                            <label for="prenomEmploye"> Prénom de l'employé</label>
+                            <input type="text" class="   input-field" id="prenomEmploye" name="prenomEmploye" placeholder="Entrer son prénom ">
+                        </div>
+                        <div class="form-group">
+                            <label> Date de naissance de l'employé</label>
+                            <input type="date" class="   input-field" id="dateNaissance" name="dateNaissance" placeholder="Entrer sa date de naissance ">
+                        </div>
+                        <div class="form-group">
+                            <label class="label"> Lieu de naissance de l'employé</label>
+                            <input type="text" class="input-field" id="lieuNaissance" name="lieuNaissance" placeholder="Entrer son lieu de naissance ">
+                        </div>
+                        <div class="form-group">
+                            <label> Sexe de l'employé</label>
+                            <select class="input-field" id="sexe" name="sexe" >
+                                <option value="">------------------------------------</option>
+                                <option value="Maxculin">Maxculin</option>
+                                <option value="Féminin">Féminin</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label> Nationalite de l'employé</label>
+                            <select  class="input-field" id="nationalite" name="nationalite">
+                                <option value="">------------------------------------</option>
+                                <option value="Allemande" >Allemande</option>
+                                <option value="Algérienne">Algérienne</option>
+                                <option value="Angolaise">Angolaise</option>
+                                <option value="Argentine">Argentine</option>
+                                <option value="Américaine">Américaine</option>
+                                <option value="Anglaise">Anglaise</option>
+                                <option value="Australienne">Australienne</option>
+                                <option value="Autrichienne">Autrichienne</option>
+                                <option value="Bahamienne">Bahamienne</option>
+                                <option value="Belge">Belge</option>
+                                <option value="Béninoise">Béninoise</option>
+                                <option value="Bisseau-Guinéene">Bisseau-Guinéene</option>
+                                <option value="Brésilienne">Brésilienne</option>
+                                <option value="Burkinabé">Burkinabé</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Camerounaise">Camerounaise</option>
+                                <option value="Canadienne">Canadienne</option>
+                                <option value="cap-verdienne">cap-verdienne</option>
+                                <option value="Chilienne">Chilienne</option>
+                                <option value="Chinoise">Chinoise</option>
+                                <option value="Colombienne">Colombienne</option>
+                                <option value="Congolaise">Congolaise</option>
+                                <option value="Corée du sud">Corée du sud</option>
+                                <option value="Coréene">Coréene</option>
+                                <option value="Cubaine">Cubaine</option>
+                                <option value="Danoise">Danoise</option>
+                                <option value="Egyptienne">Egyptienne</option>
+                                <option value="Equatorienne">Equatorienne</option>
+                                <option value="Espagnole">Espagnole</option>
+                                <option value="Estonienne">Estonienne</option>
+                                <option value="Etyiopienne">Etyiopienne</option>
+                                <option value="Finlandaise">Finlandaise</option>
+                                <option value="Française">Française</option>
+                                <option value="Gabonaise">Gabonaise</option>
+                                <option value="gambienne">gambienne</option>
+                                <option value="ghanéene">ghanéene</option>
+                                <option value="Greque">Greque</option>
+                                <option value="Guinéenne">Guinéenne</option>
+                                <option value="Haïtienne">Haïtienne</option>
+                                <option value="Hongroise">Hongroise</option>
+                                <option value="Indienne">Indienne</option>
+                                <option value="Indonésienne">Indonésienne</option>
+                                <option value="Irlandaise">Irlandaise</option>
+                                <option value="Islandaise">Islandaise</option>
+                                <option value="Israélienne">Israélienne</option>
+                                <option value="Italienne">Italienne</option>
+                                <option value="Ivoirienne">Ivoirienne</option>
+                                <option value="Jamaïquaine">Jamaïquaine</option>
+                                <option value="Japonaise">Japonaise</option>
+                                <option value="Jordanienne">Jordanienne</option>
+                                <option value="Kényene">Kényene</option>
+                                <option value="Libye">Libye</option>
+                                <option value="Marocaine">Marocaine</option>
+                                <option value="Mexicaine">Mexicaine</option>
+                                <option value="Motswanan">Motswanan</option>
+                                <option value="Mozambique">Mozambique</option>
+                                <option value="Namibie">Namibie</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Nigérienne">Nigérienne</option>
+                                <option value="Norvégienne">Norvégienne</option>
+                                <option value="Pakistanaise">Pakistanaise</option>
+                                <option value="Palestinienne">Palestinienne</option>
+                                <option value="Péruvienne">Péruvienne</option>
+                                <option value="Philippine">Philippine</option>
+                                <option value="Polonaise">Polonaise</option>
+                                <option value="Portugaise">Portugaise</option>
+                                <option value="Québécoise">Québécoise</option>
+                                <option value="Roumaine">Roumaine</option>
+                                <option value="Russe">Russe</option>
+                                <option value="Sénégalaise">Sénégalaise</option>
+                                <option value="Suédoise">Suédoise</option>
+                                <option value="Tchadienne">Tchadienne</option>
+                                <option value="Tchèque">Tchèque</option>
+                                <option value="Tunisienne">Tunisienne</option>
+                                <option value="Vietnamienne">Vietnamienne</option>
+                                <option value="Zambienne">Zambienne</option>
+                                <option value="Zimbabwéenne">Zimbabwéenne</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label> Status matrimonial de l'employé</label>
+                            <select  class="   input-field" id="statusMatrimonial" name="statusMatrimonial">
+                                <option value="">------------------------------------</option>
+                                <option value="Marié(e)">Marié(e)</option>
+                                <option value="Célibataire">Célibataire</option>
+                                <option value="Divorsé(e)">Divorsé(e)</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label> Fonction de l'employé</label>
+                            <input type="text" class="   input-field" id="fonction" name="fonction" placeholder="Entrer sa fonction ">
+                        </div>
+                        <div class="form-group">
+                            <label> Type de contrat de l'employé</label>
+                            <select  class="   input-field" id="typeContrat" name="typeContrat" >
+                                <option value="">------------------------------------</option>
+                                <option value="Durée déterminée" >Durée déterminée</option>
+                                <option value="Durée indéterminée">Durée indéterminée</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label> La date decrutement de l'employé</label>
+                            <input type="date" class="   input-field" id="dateRecrutement" name="dateRecrutement" placeholder="Entrer la date decrutement ">
+                        </div>
+                        <div class="form-group">
+                            <label> Fin du contrat de l'employé</label>
+                            <input type="date" class="   input-field" id="dateFin" name="dateFin" placeholder="Entrer le date ">
+                        </div>
+                        <div class="form-group">
+                            <label> Salaire de base de l'employé</label>
+                            <input type="number" class="   input-field" id="salaireBase" name="salaireBase" placeholder="Entrer son salaire ">
+                        </div>
+
+                        <input type="submit" class="btn center" value="Ajouter" />
+
+                       <a href="{% url 'EmployeMenu' %}">
+                            <div class="btn retour">Retour</div>
+                        </a>
+                    </form>
+
+     </div>
+
+
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+
+
+{% endblock %}

@@ -1,7 +1,8 @@
 from Tools.scripts import generate_token
-
 from Entreprise.formEntreprise import FormulaireEntreprise
+from Entreprise.formModif import FormulaireEntrepriseM
 from Entreprise.models import Entreprise
+from Adresse.models import Adresse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
@@ -30,6 +31,10 @@ def Erreur(request):
     return render(request, 'Erreur.html')
 
 
+def EntrepriseMenu(request):
+    return render(request, 'Entreprise/EntrepriseMenu.html')
+
+
 # ================================================Inscription=====================================================
 
 def Inscription(request):
@@ -37,8 +42,8 @@ def Inscription(request):
         # username = request.POST.get('username')
         username = request.POST['username']
         email = request.POST['email']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
+        pass1 = request.POST['password']
+        pass2 = request.POST['confirm-password']
 
         if User.objects.filter(username=username):
             messages.error(request,
@@ -137,8 +142,8 @@ def activate(request, uidb64, token):
 def Connexion(request):
     if request.method == 'POST':
         username = request.POST['username']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass1']
+        pass1 = request.POST['password']
+        pass2 = request.POST['password']
         user = authenticate(username=username, password=pass1)
 
         if pass1 != pass2:
@@ -158,7 +163,7 @@ def Connexion(request):
 
 
 # ====================================================FIN==========================================================
-
+@login_required(login_url='Login')
 def Dash(request):
     return render(request, "Entreprise/Dashboard/Dash.html")
 
@@ -167,7 +172,7 @@ def Dash(request):
 
 # ================================================ Ajout_entreprise ================================================
 
-
+@login_required(login_url='Login')
 def AjoutEntrepise(request):
     monformEntreprise = FormulaireEntreprise()
     user = request.user
@@ -177,27 +182,34 @@ def AjoutEntrepise(request):
         print(1)
         if monformEntreprise.is_valid():
             print(2)
-            entreprise.nomEntreprise = monformEntreprise.cleaned_data.get('nomEntreprise')
-            entreprise.activite = monformEntreprise.cleaned_data.get('activite')
-            entreprise.adresse = monformEntreprise.cleaned_data.get('adresse')
-            entreprise.anneeCreation = monformEntreprise.cleaned_data.get('anneeCreation')
-            entreprise.effectif = monformEntreprise.cleaned_data.get('effectif')
-            entreprise.capital = monformEntreprise.cleaned_data.get('capital')
-            entreprise.chiffreAffaire = monformEntreprise.cleaned_data.get('chiffreAffaire')
-            entreprise.nomDirecteur = monformEntreprise.cleaned_data.get('nomDirecteur')
-            entreprise.numeroContribuable = monformEntreprise.cleaned_data.get('numeroContribuable')
-            entreprise.formeJuridique = monformEntreprise.cleaned_data.get('formeJuridique')
-            entreprise.save()
-            return redirect('Dash')
+            entre = monformEntreprise.cleaned_data.get('nomEntreprise')
+            entre = monformEntreprise.cleaned_data.get('activite')
+            entre = monformEntreprise.cleaned_data.get('anneeCreation')
+            entre = monformEntreprise.cleaned_data.get('effectif')
+            entre = monformEntreprise.cleaned_data.get('capital')
+            entre = monformEntreprise.cleaned_data.get('chiffreAffaire')
+            entre = monformEntreprise.cleaned_data.get('nomDirecteur')
+            entre = monformEntreprise.cleaned_data.get('numeroContribuable')
+            entre = monformEntreprise.cleaned_data.get('formeJuridique')
+
+            if len(request.FILES) != 0:
+                monformEntreprise.image = monformEntreprise.cleaned_data.get('image')
+
+            monformEntreprise.save()
+            print(3)
+            return redirect('infoEntre')
+        print(4)
+
     context = {'monformEntreprise': monformEntreprise}
     return render(request, 'Entreprise/AjoutEntre.html', context)
 
 
-@login_required
+@login_required(login_url='Login')
 def InfoEntreprise(request):
     user = request.user
     entreprises = Entreprise.objects.get(identifiant=user)
-    context = {'entreprises': entreprises}
+    adresses = Adresse.objects.filter(entreprise=entreprises)
+    context = {'entreprises': entreprises, 'adresses': adresses}
     return render(request, 'Entreprise/InfoEntreprise.html', context)
 
 
@@ -214,10 +226,10 @@ def Entreprisek(request):
     return render(request, 'Entreprise/Entreprise.html', context)
 
 
+@login_required(login_url='Login')
 def modifientreprise(request, entreprise_id):
     entreprise = get_object_or_404(Entreprise, id=entreprise_id)
     dic = {'nomEntreprise': entreprise.nomEntreprise,
-           'adresse': entreprise.adresse,
            'anneeCreation': entreprise.anneeCreation,
            'activite': entreprise.activite,
            'effectif': entreprise.effectif,
@@ -225,16 +237,14 @@ def modifientreprise(request, entreprise_id):
            'nomDirecteur': entreprise.nomDirecteur,
            'numeroContribuable': entreprise.numeroContribuable,
            'formeJuridique': entreprise.formeJuridique,
-           'chiffreAffaire': entreprise.chiffreAffaire}
-
+           'chiffreAffaire': entreprise.chiffreAffaire
+           }
     form_em = FormulaireEntrepriseM(data=dic)
     if request.method == 'POST':
         form_em = FormulaireEntrepriseM(request.POST, instance=entreprise)
         if form_em.is_valid():
             form_em.save()
-            return redirect('entreprise')
-    if request.method == 'GET':
-        form_em = FormulaireEntrepriseM(data=dic)
+            return redirect('infoEntre')
     return render(request, 'Entreprise/modifEntreprise.html', {'modifientreprise': form_em})
 
 
@@ -279,6 +289,6 @@ def Aide(request):
 @login_required
 def Finish(request):
     logout(request)
-    return redirect('login')
+    return redirect('Login')
 
 # ==========================================================================================================

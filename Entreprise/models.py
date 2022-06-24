@@ -18,7 +18,7 @@ class Entreprise(models.Model):
                       ('SCI', 'SCI'),
                       ('SP', 'SP'))
     nomEntreprise = models.CharField(default='Entreprise', max_length=50, null=True, blank=True)
-    anneeCreation = models.IntegerField(default=2000, null=True, blank=True)
+    anneeCreation = models.DateField(null=True)
     activite = models.CharField(default='Activité', max_length=100, null=True, blank=True)
     effectif = models.IntegerField(default=10, null=True, blank=True)
     capital = models.IntegerField(default=10000, null=True, blank=True)
@@ -26,6 +26,7 @@ class Entreprise(models.Model):
     numeroContribuable = models.IntegerField(default=5, null=True, blank=True)
     formeJuridique = models.CharField(default='SARL', max_length=50, null=True, choices=FORMEJURIDIQUE, blank=True)
     chiffreAffaire = models.IntegerField(default=10000, null=True, blank=True)
+    image = models.ImageField('Label', upload_to='cars', null=True)
 
     def __str__(self):
         return self.nomEntreprise

@@ -1,0 +1,53 @@
+
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+
+        <div class="table-salaire">
+
+                <h2>Tableau des employés</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="">Identifiant</th>
+                            <th class="">Nom</th>
+                            <th>Prenom</th>
+                            <th>Salaire base</th>
+                            <th>Salaire net</th>
+                            <th>Indemnité</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                     {% for Employes in Employes %}
+                        <tr>
+                        <td>{{Employes.id}}</td>
+                        <td>{{Employes.nomEmploye}}</td>
+                        <td>{{Employes.prenomEmploye}}</td>
+                        <td>{{Employes.salaireBase}}</td>
+                        <td>{{Employes.salaireNet}}</td>
+                        <td class="warning"> <a href="{% url 'ModifierEmploye' Employes.pk %}">Modifier</a></td>
+
+                        </tr>
+                     {%endfor%}
+                    </tbody>
+                </table>
+                <a href="{% url 'pdf' %}">Télécharger </a>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ {% endblock %}

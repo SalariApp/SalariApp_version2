@@ -1,0 +1,49 @@
+
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+
+     <div class="container-form">
+
+                    <form method="POST" action="{% url 'AjoutIndem' %}" class="sign-in-form">
+                           <h2 class="title" style="text-align:center;"><b>Ajout d'un employé</b></h2>
+                      {% csrf_token %}
+                        <div class="form-group">
+                            <label for="intitule"> Intitulé</label>
+                            <input type="text" class="  input-field" id="intitule" name="intitule" placeholder="Entrer l'intitulé ">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Valeur de l'indemnité</label>
+                            <input type="number" class="   input-field" id="valeur" name="valeur" placeholder="Entrer la valeur ">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Type d'indemnité</label>
+                            <select  class="   input-field" id="type" name="type">
+                                <option value="">----------------------------------</option>
+                                <option value="Valeur fixe">Valeur fixe</option>
+                                <option value="pourcentage sur salaire">pourcentage sur salaire</option>
+                            </select>
+                        </div>
+                        <input type="submit" class="btn center" value="Modifier" />
+
+                       <a href="{% url 'Salaire' %}">
+                            <div class="btn retour">Annuler</div>
+                        </a>
+                    </form>
+
+     </div>
+
+
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+
+
+{% endblock %}

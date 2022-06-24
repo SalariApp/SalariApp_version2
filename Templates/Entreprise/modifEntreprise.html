@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+
+ {% block contenu %}
+
+     <div class="container-form">
+
+
+         <form method="POST" action="{% url 'creerEntre' %}" class="sign-in-form" style="padding: 6px;">
+                <h2 class="title" style="text-align:center;"><b>Modification des informations</b></h2>
+             {% csrf_token %}
+
+                <div class="form-group">
+                            <label for="nomEntreprise"> Nom de l'entreprise</label>
+                            <input type="text" class="  input-field" id="nomEntreprise" name="nomEntreprise" placeholder={{modifientreprise.nomEntreprise}}
+                </div>
+                <div class="form-group">
+                            <label for="activite"> Activite de l'entreprise</label>
+                            <input type="text" class="  input-field" id="activite" name="activite" placeholder={{modifientreprise.activite}}
+                </div>
+                 <div class="form-group">
+                            <label for="adresse"> Adresse de l'entreprise</label>
+                            <input type="text" class="  input-field" id="adresse" name="adresse" placeholder={{modifientreprise.adresse}}>
+                </div>
+                <div class="form-group">
+                            <label for="anneeCreation"> Annee de création de l'entreprise</label>
+                            <input type="date" class="  input-field" id="anneeCreation" name="anneeCreation" placeholder={{modifientreprise.anneeCreation}}
+                </div>
+                <div class="form-group">
+                            <label for="effectif"> Effectif de l'entreprise</label>
+                            <input type="number" class="  input-field" id="effectif" name="effectif" placeholder={{modifientreprise.effectif}}
+                </div>
+                 <div class="form-group">
+                            <label for="effectif"> Capital de l'entreprise</label>
+                            <input type="number" class="  input-field" id="capital" name="capital" placeholder={{modifientreprise.capital}}
+                </div>
+                <div class="form-group">
+                            <label for="effectif"> Chiffre d'affaire de l'entreprise</label>
+                            <input type="number" class="  input-field" id="chiffreAffaire" name="chiffreAffaire" placeholder={{modifientreprise.chiffreAffaire}}
+                </div>
+                 <div class="form-group">
+                            <label for="nomDirecteur"> Nom du directeurde de l'entreprise</label>
+                            <input type="text" class="  input-field" id="nomDirecteur" name="nomDirecteur" placeholder={{modifientreprise.nomDirecteur}}
+                </div>
+                <div class="form-group">
+                            <label for="numeroContribuable"> Numero contribuable de l'entreprise</label>
+                            <input type="number" class="  input-field" id="numeroContribuable" name="numeroContribuable" placeholder={{modifientreprise.numeroContribuable}}
+                </div>
+                <div class="form-group">
+                            <label for="formeJuridique"> Forme juridique de l'entreprise</label>
+                            <select  class="   input-field" id="formeJuridique" name="formeJuridique" >
+                                <option value="{{modifientreprise.formeJuridique}}"> </option>
+                            </select>
+                </div>
+
+                <input type="submit" class="btn center" value="Modifier" />
+                        <a href="{% url 'infoEntre' %}">
+                            <button class="btn retour">Annuler</button>
+                        </a>
+         </form>
+
+     </div>
+
+
+ {% endblock %}

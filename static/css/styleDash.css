@@ -425,7 +425,7 @@ main .insi svg circle{
 
 
 main .insi .prix svg circle{
-    stroke-dasharray: 200 ;
+    stroke-dasharray: 45 ;
     stroke-dashoffset: -40;
 }
 

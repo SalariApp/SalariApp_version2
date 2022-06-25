@@ -8,5 +8,6 @@ urlpatterns = [
     path('pdf', include('GeneratePDF.urls')),
     path('Adresse', include('Adresse.urls')),
     path('salaire', include('Salaire.urls'))
+
 ]
 

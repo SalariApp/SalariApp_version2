@@ -42,7 +42,7 @@ def Ajoute_Indemnites(request, cle):
                 print('reussi')
                 return redirect('InfoIndem')
     context = {'monformIndemnites': monformIndemnites}
-    return render(request, 'Indemnites/AjouterIndemnite.html', context)
+    return render(request, 'Salaire/Indemnites.html', context)
 
 
 def Affiche_Indemnites(request):

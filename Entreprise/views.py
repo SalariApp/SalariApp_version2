@@ -16,6 +16,7 @@ from Entreprise.tokens import generate_token
 from django.contrib.auth.models import User
 from django.contrib import messages
 from ProjetSalariApp import settings
+from Employe.models import Employe
 
 # from .formModif import FormulaireEntrepriseM
 # from .models import Entreprise
@@ -71,7 +72,7 @@ def Inscription(request):
 
         myuser = User.objects.create_superuser(username, email, pass1)
         myuser.first_name = username
-        myuser.is_active = True
+        myuser.is_active = False
         myuser.save()
 
         messages.error(request,
@@ -141,10 +142,11 @@ def activate(request, uidb64, token):
 
 def Connexion(request):
     if request.method == 'POST':
-        username = request.POST['username']
+       # username = request.POST['username']
+        email = request.POST['email']
         pass1 = request.POST['password']
         pass2 = request.POST['password']
-        user = authenticate(username=username, password=pass1)
+        user = authenticate(email=email, password=pass1)
 
         if pass1 != pass2:
             messages.error(request, "Erreur de mot de passe!")
@@ -152,9 +154,7 @@ def Connexion(request):
 
         if user is not None:
             login(request, user)
-            # fname = user.first_name
             return redirect('Dash')
-        # render(request, "Entreprise/Dashboard/Dash.html", {'fname': fname})
         else:
             messages.error(request, "Erreur de connexion, veillez entrer les informations correctes")
             return redirect('Login')
@@ -165,7 +165,22 @@ def Connexion(request):
 # ====================================================FIN==========================================================
 @login_required(login_url='Login')
 def Dash(request):
-    return render(request, "Entreprise/Dashboard/Dash.html")
+    Employ = Employe.objects.all()
+    i: int = 0
+    b: int = 0
+    a: int = 0
+    for em in Employ:
+        if em.salaireBase > a:
+            a = em.salaireBase
+        b += em.salaireBase
+        i = i + 1
+
+    context = {'b': b,
+               'i': i,
+               'a': a
+               }
+
+    return render(request, "Entreprise/Dashboard/Dash.html", context)
 
 
 # ================================================ Entreprise =====================================================

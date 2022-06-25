@@ -2,8 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 # from Salaire.models import Salaire
 from Entreprise.models import Entreprise
-from Prime.models import Prime
-from Indemnites.models import Indemnites
 
 
 # Create your models here.
@@ -108,8 +106,6 @@ class Employe(models.Model):
     salaireBase = models.IntegerField(null=True)
     salaireNet = models.IntegerField(null=True)
     sexe = models.CharField(max_length=10, null=True, choices=SEXE)
-    prime = models.ManyToManyField(Prime)
-    indemnite = models.ManyToManyField(Indemnites)
 
     def __str__(self):
         return self.nomEmploye

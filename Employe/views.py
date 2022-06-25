@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from reportlab.lib.randomtext import objects
+
 from Employe.formulaireEmploye import FormulaireEmploye
 from Employe.models import Employe
 from Entreprise.models import Entreprise
@@ -46,7 +48,12 @@ def Liste_Employe(request):
     user = request.user
     Employes = Employe.objects.all()
     context2 = {'Employes': Employes}
+    k: int = len(Employes)
+    print(k)
     return render(request, 'Employe/AfficheEmploye.html', context2)
+
+
+
 
 
 @login_required(login_url='Login')

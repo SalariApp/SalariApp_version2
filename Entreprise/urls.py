@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from Entreprise.views import Connexion, Dash, Inscription, Erreur, activate, AjoutEntrepise, InfoEntreprise, modifientreprise,EntrepriseMenu, Finish
+
 urlpatterns = [
     path('', Connexion, name='Login'),
     path('Dash', Dash, name='Dash'),

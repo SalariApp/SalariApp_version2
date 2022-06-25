@@ -142,11 +142,10 @@ def activate(request, uidb64, token):
 
 def Connexion(request):
     if request.method == 'POST':
-       # username = request.POST['username']
-        email = request.POST['email']
+        username = request.POST['username']
         pass1 = request.POST['password']
         pass2 = request.POST['password']
-        user = authenticate(email=email, password=pass1)
+        user = authenticate(username=username, password=pass1)
 
         if pass1 != pass2:
             messages.error(request, "Erreur de mot de passe!")
@@ -154,7 +153,9 @@ def Connexion(request):
 
         if user is not None:
             login(request, user)
+            # fname = user.first_name
             return redirect('Dash')
+        # render(request, "Entreprise/Dashboard/Dash.html", {'fname': fname})
         else:
             messages.error(request, "Erreur de connexion, veillez entrer les informations correctes")
             return redirect('Login')
@@ -171,7 +172,7 @@ def Dash(request):
     a: int = 0
     for em in Employ:
         if em.salaireBase > a:
-            a = em.salaireBase
+            a=em.salaireBase
         b += em.salaireBase
         i = i + 1
 
